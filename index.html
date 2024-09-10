@@ -1,51 +1,202 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Wir Web</title>
-	<link type="text/css" href="css/style.css" rel="stylesheet" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bilingual Website (English & German)</title>
+    
+    <!-- اضافه کردن فونت‌های زیبا -->
+    <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Lato', sans-serif;
+            display: flex;
+            height: 100vh;
+            overflow: hidden;
+            direction: ltr; /* جهت نوشتاری برای انگلیسی و آلمانی */
+            -webkit-user-select: none; /* Safari */
+            -moz-user-select: none; /* Firefox */
+            -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently supported by Chrome, Opera, and Edge */
+        }
+
+        .section {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 40px;
+        }
+
+        .black-section {
+            background-color: #000;
+            clip-path: polygon(0 0, 100% 0, 0% 100%);
+            color: white;
+        }
+
+        .white-section {
+            background-color: #fff;
+            clip-path: polygon(100% 0, 100% 100%, 0% 100%);
+            color: black;
+        }
+
+        .profile {
+            margin: 180px 0;
+            text-align: center;
+        }
+
+        .profile img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            border: 4px solid #fff;
+            object-fit: cover;
+            margin-bottom: 20px;
+        }
+
+        .profile a {
+            color: inherit;
+            text-decoration: none;
+            display: block;
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+
+        .social-links a {
+            margin: 5px;
+            color: inherit;
+            text-decoration: none;
+        }
+        
+        .email {
+            margin-top: 20px;
+            font-size: 16px;
+        }
+    </style>
 </head>
-<body class="bg-purple">
-	<div class="stars">
-		<!-- start logo and menu -->
-		<div class="custom-navbar">
-			<div class="brand-logo">
-				<img src="pics/logo.svg" width="80px">
-			</div>
-			<div class="navbar-links">
-				<ul>
-					<li><a href="#" target="_blank">صفحه نخست</a></li>
-					<li><a href="#" target="_blank">درباره ما</a></li>
-				</ul>
-			</div>
-		</div>
-		<!-- end logo and menu -->
-		<!-- start content -->
-		<div class="central-body">
-			<img class="image-404" src="pics/404.png" width="300px">
-			<a href="#" class="btn-go-home" target="_blank">بازگشت</a>
-		</div>
-		<div class="objects">
-			<img class="object_rocket" src="pics/rocket.svg" width="40px">
-			<div class="earth-moon">
-				<img class="object_earth" src="pics/earth.svg" width="100px">
-				<img class="object_moon" src="pics/moon.svg" width="80px">
-			</div>
-			<div class="box_astronaut">
-				<img class="object_astronaut" src="pics/astronaut.svg" width="140px">
-			</div>
-		</div>
-		<div class="glowing_stars">
-			<div class="star"></div>
-			<div class="star"></div>
-			<div class="star"></div>
-			<div class="star"></div>
-			<div class="star"></div>
-		</div>
-		<!-- end content -->
-	</div>
-	<script src="js/jquery-3.1.1.min.js"></script>
-</body><!-- oh meine web site ist da -->
+<body>
+    <div id="content"></div>
+
+    <!-- کد برای شناسایی موقعیت جغرافیایی و بارگذاری زبان -->
+    <script>
+        document.addEventListener('contextmenu', function(e) {
+            e.preventDefault();
+        });
+
+        function loadContent(language) {
+            const content = {
+                en: {
+                    blackSection: {
+                        profile1: {
+                            resume: "Download Resume",
+                            email: "moli1369@gmail.com"
+                        },
+                        profile2: {
+                            resume: "Download Resume 2",
+                            email: "email2@example.com"
+                        }
+                    },
+                    whiteSection: {
+                        profile3: {
+                            resume: "Download Resume 3",
+                            email: "email3@example.com"
+                        },
+                        profile4: {
+                            resume: "Download Resume 4",
+                            email: "email4@example.com"
+                        }
+                    }
+                },
+                de: {
+                    blackSection: {
+                        profile1: {
+                            resume: "Lebenslauf 1 herunterladen",
+                            email: "email1@example.com"
+                        },
+                        profile2: {
+                            resume: "Lebenslauf 2 herunterladen",
+                            email: "email2@example.com"
+                        }
+                    },
+                    whiteSection: {
+                        profile3: {
+                            resume: "Lebenslauf 3 herunterladen",
+                            email: "email3@example.com"
+                        },
+                        profile4: {
+                            resume: "Lebenslauf 4 herunterladen",
+                            email: "email4@example.com"
+                        }
+                    }
+                }
+            };
+
+            const section = document.getElementById('content');
+            section.innerHTML = `
+                <div class="section black-section">
+                    <div class="profile">
+                        <img src="Mohammad.jpeg" alt="Profile 1">
+                        <a href="Mohammad Askari.pdf" download>${content[language].blackSection.profile1.resume}</a>
+                        <div class="email">Email: ${content[language].blackSection.profile1.email}</div>
+                        <div class="social-links">
+                            <a href="https://www.linkedin.com/" target="_blank">LinkedIn</a>
+                            <a href="https://www.instagram.com/" target="_blank">Instagram</a>
+                        </div>
+                    </div>
+                    <div class="profile">
+                        <img src="profile2.jpg" alt="Profile 2">
+                        <a href="resume2.pdf" download>${content[language].blackSection.profile2.resume}</a>
+                        <div class="email">Email: ${content[language].blackSection.profile2.email}</div>
+                        <div class="social-links">
+                            <a href="https://www.linkedin.com/" target="_blank">LinkedIn</a>
+                            <a href="https://www.instagram.com/" target="_blank">Instagram</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="section white-section">
+                    <div class="profile">
+                        <img src="profile3.jpg" alt="Profile 3">
+                        <a href="resume3.pdf" download>${content[language].whiteSection.profile3.resume}</a>
+                        <div class="email">Email: ${content[language].whiteSection.profile3.email}</div>
+                        <div class="social-links">
+                            <a href="https://www.linkedin.com/" target="_blank">LinkedIn</a>
+                            <a href="https://www.instagram.com/" target="_blank">Instagram</a>
+                        </div>
+                    </div>
+                    <div class="profile">
+                        <img src="profile4.jpg" alt="Profile 4">
+                        <a href="resume4.pdf" download>${content[language].whiteSection.profile4.resume}</a>
+                        <div class="email">Email: ${content[language].whiteSection.profile4.email}</div>
+                        <div class="social-links">
+                            <a href="https://www.linkedin.com/" target="_blank">LinkedIn</a>
+                            <a href="https://www.instagram.com/" target="_blank">Instagram</a>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        function determineLanguage() {
+            fetch('http://api.ipstack.com/check?access_key=1a47f1a1a6fd2c7a67a8921ca30a52a5')
+                .then(response => response.json())
+                .then(data => {
+                    const europeCountries = ['DE', 'FR', 'IT', 'ES', 'NL', 'BE', 'CH', 'AT', 'SE', 'DK', 'NO', 'FI', 'IE', 'PL', 'CZ', 'HU', 'RO', 'BG', 'GR', 'PT', 'SK', 'SI', 'HR', 'LT', 'LV', 'EE', 'LU', 'CY', 'MT'];
+                    const countryCode = data.country_code;
+                    const language = europeCountries.includes(countryCode) ? 'en' : 'de';
+                    loadContent(language);
+                })
+                .catch(error => {
+                    console.error('Error fetching location data:', error);
+                    loadContent('de'); // Default to German if there's an error
+                });
+        }
+
+        determineLanguage();
+    </script>
+</body>
 </html>
