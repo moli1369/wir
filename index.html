@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bilingual Website (English & German)</title>
+    <title>🖥️My Web Site❤️</title>
     
     <!-- اضافه کردن فونت‌های زیبا -->
     <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
@@ -46,7 +46,7 @@
         }
 
         .profile {
-            margin: 180px 0;
+            margin: 130px 0;
             text-align: center;
         }
 
@@ -108,18 +108,18 @@
                         },
                         profile4: {
                             resume: "Download Resume 4",
-                            email: "email4@example.com"
+                            email: "mohebi.computer@gmail.com"
                         }
                     }
                 },
                 de: {
                     blackSection: {
                         profile1: {
-                            resume: "Lebenslauf 1 herunterladen",
-                            email: "email1@example.com"
+                            resume: "Download Resume",
+                            email: "moli1369@gmail.com"
                         },
                         profile2: {
-                            resume: "Lebenslauf 2 herunterladen",
+                            resume: "Download Resume",
                             email: "email2@example.com"
                         }
                     },
@@ -129,8 +129,8 @@
                             email: "email3@example.com"
                         },
                         profile4: {
-                            resume: "Lebenslauf 4 herunterladen",
-                            email: "email4@example.com"
+                            resume: "Download Resume",
+                            email: "mohebi.computer@gmail.com"
                         }
                     }
                 }
@@ -140,12 +140,13 @@
             section.innerHTML = `
                 <div class="section black-section">
                     <div class="profile">
-                        <img src="Mohammad.jpeg" alt="Profile 1">
+                        <img src="Mohammad.jpg" alt="Profile 1">
                         <a href="Mohammad Askari.pdf" download>${content[language].blackSection.profile1.resume}</a>
-                        <div class="email">Email: ${content[language].blackSection.profile1.email}</div>
+						<a href="mailto:moli1369@gmail.com">Email:moli1369@gmail.com</a>
+                        <!--<div class="email">Email: ${content[language].blackSection.profile1.email}</div> -->
                         <div class="social-links">
                             <a href="https://www.linkedin.com/in/mohamad-askari/" target="_blank">LinkedIn</a>
-                            <a href="https://www.instagram.com/" target="_blank">Instagram</a>
+                            <a href="https://www.instagram.com/moli1369" target="_blank">Instagram</a>
                         </div>
                     </div>
                     <div class="profile">
@@ -169,9 +170,10 @@
                         </div>
                     </div>
                     <div class="profile">
-                        <img src="profile4.jpg" alt="Profile 4">
-                        <a href="resume4.pdf" download>${content[language].whiteSection.profile4.resume}</a>
-                        <div class="email">Email: ${content[language].whiteSection.profile4.email}</div>
+                        <img src="Nafas.jpg" alt="Profile 4">
+                        <a href="Nafas Mohebi.pdf" download>${content[language].whiteSection.profile4.resume}</a>
+						<a href="mailto:mohebi.computer@gmail.com">Email:mohebi.computer@gmail.com</a>
+                        <!-- <div class="email">Email: ${content[language].whiteSection.profile4.email}</div> -->
                         <div class="social-links">
                             <a href="https://www.linkedin.com/" target="_blank">LinkedIn</a>
                             <a href="https://www.instagram.com/" target="_blank">Instagram</a>
